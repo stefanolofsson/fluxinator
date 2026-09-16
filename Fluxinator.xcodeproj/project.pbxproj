@@ -6,20 +6,76 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		36E6B45330544A3B00266AC8 /* Fluxinator Watch App Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 36E6B44930544A3900266AC8 /* Fluxinator Watch App Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36E6B45130544A3B00266AC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36E6B429305447D100266AC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36E6B44830544A3900266AC8;
+			remoteInfo = "Fluxinator Watch App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		36E6B45730544A3B00266AC8 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				36E6B45330544A3B00266AC8 /* Fluxinator Watch App Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		36E6B431305447D100266AC8 /* Fluxinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluxinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E6B44930544A3900266AC8 /* Fluxinator Watch App Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fluxinator Watch App Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		36E6B45930544A8400266AC8 /* Exceptions for "Fluxinator" folder in "Fluxinator Watch App Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BLEManager.swift,
+				SpeedometerArc.swift,
+				WatchSyncManager.swift,
+			);
+			target = 36E6B44830544A3900266AC8 /* Fluxinator Watch App Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		36E6B433305447D100266AC8 /* Fluxinator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				36E6B45930544A8400266AC8 /* Exceptions for "Fluxinator" folder in "Fluxinator Watch App Watch App" target */,
+			);
 			path = Fluxinator;
+			sourceTree = "<group>";
+		};
+		36E6B44A30544A3900266AC8 /* Fluxinator Watch App Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Fluxinator Watch App Watch App";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		36E6B42E305447D100266AC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36E6B44630544A3900266AC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				36E6B433305447D100266AC8 /* Fluxinator */,
+				36E6B44A30544A3900266AC8 /* Fluxinator Watch App Watch App */,
 				36E6B432305447D100266AC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				36E6B431305447D100266AC8 /* Fluxinator.app */,
+				36E6B44930544A3900266AC8 /* Fluxinator Watch App Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,10 +113,12 @@
 				36E6B42D305447D100266AC8 /* Sources */,
 				36E6B42E305447D100266AC8 /* Frameworks */,
 				36E6B42F305447D100266AC8 /* Resources */,
+				36E6B45730544A3B00266AC8 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				36E6B45230544A3B00266AC8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				36E6B433305447D100266AC8 /* Fluxinator */,
@@ -68,6 +128,28 @@
 			);
 			productName = Fluxinator;
 			productReference = 36E6B431305447D100266AC8 /* Fluxinator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36E6B44830544A3900266AC8 /* Fluxinator Watch App Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36E6B45430544A3B00266AC8 /* Build configuration list for PBXNativeTarget "Fluxinator Watch App Watch App" */;
+			buildPhases = (
+				36E6B44530544A3900266AC8 /* Sources */,
+				36E6B44630544A3900266AC8 /* Frameworks */,
+				36E6B44730544A3900266AC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				36E6B44A30544A3900266AC8 /* Fluxinator Watch App Watch App */,
+			);
+			name = "Fluxinator Watch App Watch App";
+			packageProductDependencies = (
+			);
+			productName = "Fluxinator Watch App Watch App";
+			productReference = 36E6B44930544A3900266AC8 /* Fluxinator Watch App Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -81,6 +163,9 @@
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					36E6B430305447D100266AC8 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					36E6B44830544A3900266AC8 = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
@@ -100,12 +185,20 @@
 			projectRoot = "";
 			targets = (
 				36E6B430305447D100266AC8 /* Fluxinator */,
+				36E6B44830544A3900266AC8 /* Fluxinator Watch App Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36E6B42F305447D100266AC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36E6B44730544A3900266AC8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +215,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		36E6B44530544A3900266AC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36E6B45230544A3B00266AC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 36E6B44830544A3900266AC8 /* Fluxinator Watch App Watch App */;
+			targetProxy = 36E6B45130544A3B00266AC8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		36E6B43A305447D200266AC8 /* Debug */ = {
@@ -251,9 +360,20 @@
 				DEVELOPMENT_TEAM = YB7SHN8MDM;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Used to connect and control Fluxinator";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -295,9 +415,20 @@
 				DEVELOPMENT_TEAM = YB7SHN8MDM;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Used to connect and control Fluxinator";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -329,6 +460,73 @@
 			};
 			name = Release;
 		};
+		36E6B45530544A3B00266AC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YB7SHN8MDM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fluxinator Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.stefanolofsson.Fluxinator;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanolofsson.Fluxinator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Debug;
+		};
+		36E6B45630544A3B00266AC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YB7SHN8MDM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fluxinator Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.stefanolofsson.Fluxinator;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanolofsson.Fluxinator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +544,15 @@
 			buildConfigurations = (
 				36E6B43D305447D200266AC8 /* Debug */,
 				36E6B43E305447D200266AC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36E6B45430544A3B00266AC8 /* Build configuration list for PBXNativeTarget "Fluxinator Watch App Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36E6B45530544A3B00266AC8 /* Debug */,
+				36E6B45630544A3B00266AC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

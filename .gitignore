@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.xcuserdatad
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Arduino / PlatformIO
+.pio/
+*.bin
+*.elf
+*.hex
+
