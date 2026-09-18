@@ -48,6 +48,16 @@ struct ContentView: View {
                         Text("FLUXINATOR")
                             .font(.system(size: 24, weight: .black, design: .rounded))
                             .foregroundColor(yellowAccent)
+                            .onTapGesture(count: 5) {
+                                // Haptisk feedback på iPhone vid aktivering
+                                #if os(iOS)
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.notificationOccurred(.success)
+                                #endif
+                                
+                                ble.toggleReviewMode()
+                            }
+
                         HStack(spacing: 6) {
                             Circle()
                                 .fill(ble.isConnected ? Color.green : Color.red)

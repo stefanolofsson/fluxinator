@@ -19,6 +19,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     @Published var fanSpeed: Double = 0.0
     @Published var isRunning = false
     @Published var rpm: Int = 0
+    @Published var isReviewMode: Bool = false
 
     override init() {
         super.init()
@@ -137,15 +138,56 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     }
 
     func togglePower() {
+        isRunning.toggle()
+        
         if isRunning {
-            sendCommand("OFF")
-            isRunning = false
+            // Om hastigheten råkar vara 0 vid start ges ett startvärde (25%),
+            // annars behålls det befintliga värdet (t.ex. 10%)
+            if fanSpeed == 0 {
+                fanSpeed = 25
+            }
+            rpm = Int(fanSpeed * 18.5)
+            sendCommand("F \(Int(fanSpeed))")
         } else {
-            sendCommand("ON")
-            isRunning = true
-            if fanSpeed == 0 { fanSpeed = 50 }
+            sendCommand("OFF")
         }
-        syncWithWatch()
+        
+        // Tvinga ut aktuell status till klockan direkt
+        #if os(iOS)
+        WatchSyncManager.shared.sendStateToWatch(
+            fanSpeed: fanSpeed,
+            isRunning: isRunning,
+            rpm: rpm,
+            isConnected: isConnected,
+            force: true
+        )
+        #endif
+    }
+
+
+    
+    // Lägg till denna metod i BLEManager:
+    func toggleReviewMode() {
+        isReviewMode.toggle()
+        
+        if isReviewMode {
+            isConnected = true
+            connectionStatus = "CONNECTED"
+            print("[REVIEW MODE] Activated - Mock hardware connected.")
+        } else {
+            isConnected = false
+            connectionStatus = "DISCONNECTED"
+            print("[REVIEW MODE] Deactivated.")
+        }
+        
+        // Spegla statusen till Apple Watch direkt
+        WatchSyncManager.shared.sendStateToWatch(
+            fanSpeed: fanSpeed,
+            isRunning: isRunning,
+            rpm: rpm,
+            isConnected: isConnected,
+            force: true
+        )
     }
 
     // MARK: - Watch Sync
