@@ -75,11 +75,10 @@ security find-identity -v -p codesigning 2>/dev/null | grep -qF "$SIGN_ID" \
 ok "signeringsidentitet finns"
 
 if [ "$DO_NOTARIZE" -eq 1 ]; then
-    if ! security find-generic-password -s 'com.apple.gke.notary.tool' -a "$NOTARY_PROFILE" >/dev/null 2>&1; then
-        printf '  \033[33m!\033[0m hittar ingen nyckelringsprofil "%s" — notarytool får säga sitt\n' "$NOTARY_PROFILE"
-    else
-        ok "notarytool-profil \"$NOTARY_PROFILE\" finns"
-    fi
+    # Det finns ingen pålitlig lokal koll på att profilen existerar — notarytool
+    # lagrar den på ett sätt som inte går att slå upp med security(1). Den
+    # validerar sig själv vid insändning och ger ett tydligt fel om den saknas.
+    ok "notariserar med profilen \"$NOTARY_PROFILE\""
 fi
 
 # ------------------------------------------------------------- versionsuppräkning
