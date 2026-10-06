@@ -94,6 +94,7 @@ struct ContentView: View {
                         .padding(.trailing, 24)
                         Spacer()
                     }
+                    .frame(maxHeight: .infinity)
                 } else {
                     VStack(spacing: 20) {
                         Spacer()
@@ -144,7 +145,7 @@ struct ContentView: View {
                     }
                 }
             )
-
+            .tint(yellowAccent)
 
             // Presets
             VStack(alignment: .leading, spacing: 8) {

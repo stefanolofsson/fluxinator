@@ -22,6 +22,15 @@ struct SettingsView: View {
 
     let yellowAccent = Color(red: 255/255, green: 186/255, blue: 0/255)
 
+    // Läses ur bundlen så att den aldrig glider isär från MARKETING_VERSION
+    // och CURRENT_PROJECT_VERSION i projektinställningarna.
+    private var appVersion: String {
+        let info = Bundle.main.infoDictionary
+        let short = info?["CFBundleShortVersionString"] as? String ?? "—"
+        let build = info?["CFBundleVersion"] as? String ?? "—"
+        return "\(short) (\(build))"
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             // Header
@@ -66,7 +75,7 @@ struct SettingsView: View {
 
                     // About
                     settingsSection(title: "About") {
-                        settingsRow(label: "App Version", value: "1.0.0")
+                        settingsRow(label: "App Version", value: appVersion)
                     }
                 }
                 .padding(.horizontal, 20)
