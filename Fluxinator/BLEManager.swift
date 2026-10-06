@@ -24,11 +24,34 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: .main)
+        applyLaunchArguments()
+    }
+
+    /// Skärmbildsläge för butiksbilder: -FluxinatorDemo slår på demoläget direkt,
+    /// utan de fem trycken på rubriken. Startargument går bara att sätta från
+    /// Xcode eller simctl, så en användare kan aldrig hamna här av misstag.
+    ///
+    /// Arbetet skjuts till nästa varv i runloopen: demoläget går via
+    /// WatchSyncManager, som i sin tur når BLEManager.shared. Att röra den
+    /// medan singletonen fortfarande initieras skulle låsa sig.
+    private func applyLaunchArguments() {
+        guard ProcessInfo.processInfo.arguments.contains("-FluxinatorDemo") else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.toggleReviewMode()
+            self.isRunning = true
+            self.setFanSpeed(75)
+        }
     }
 
     // MARK: - Central Manager Lifecycle
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        // Demoläget äger statusen helt: utan den här spärren skriver radion över
+        // "CONNECTED" så fort den rapporterar sitt tillstånd, och demot ser
+        // trasigt ut för den som granskar appen.
+        guard !isReviewMode else { return }
+
         if central.state == .poweredOn {
             connectionStatus = "SCANNING..."
             centralManager.scanForPeripherals(withServices: [serviceUUID], options: nil)
@@ -62,6 +85,8 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
     }
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        guard !isReviewMode else { return }
+
         isConnected = false
         connectionStatus = "DISCONNECTED"
         self.rxCharacteristic = nil
